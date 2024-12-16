@@ -39,7 +39,7 @@ const LoginScreen = () => {
     signInWithEmailAndPassword(auth, email, password).then(async (userCredentials) => {
         const user = userCredentials.user;
         console.log(user)
-        dispatch(login({email : user.email}))
+        dispatch(login(user.email))
         await SecureStore.setItemAsync('user', JSON.stringify(user));
         navigation.navigate('Tabs')
     }).catch((e) => {
